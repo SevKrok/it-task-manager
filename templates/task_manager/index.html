@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Task Manager Home</h1>
+    <p>Welcome to Best Task Manager Ever!</p>
+    <h2>Dynamic content</h2>
+
+    <p>You have visited this page
+        {{ num_visits }} time{{ num_visits|pluralize }}.
+    </p>
+
+{% endblock %}

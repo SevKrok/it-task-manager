@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Workers List
+  </h1>
+
+    {% include "includes/search_form.html" %}
+    <br>
+
+
+  {% if worker_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>position</th>
+        <th>full name</th>
+        <th>username</th>
+        <th>email</th>
+      </tr>
+      {% for worker in worker_list %}
+        <tr>
+          <td>{{ worker.id }}</td>
+          <td>{{ worker.position }}</td>
+          <td>{{ worker.get_full_name }}</td>
+          <td>{{ worker.username }}</td>
+          <td>{{ worker.email }}</td>
+        </tr>
+      {% endfor %}
+
+    </table>
+  {% else %}
+    <p>There are no workers now.</p>
+  {% endif %}
+{% endblock %}
