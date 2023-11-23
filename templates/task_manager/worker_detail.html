@@ -2,7 +2,13 @@
 
 {% block content %}
   <h1>
-  {{ worker.get_full_name }} {% if worker.id == user.id %}(Me){% endif %}
+    {{ worker.get_full_name }}
+    {% if worker.id == user.id %}
+      (Me)
+      <a href="{% url 'task_manager:worker-update' pk=worker.id %}">
+        Update
+      </a>
+    {% endif %}
   </h1>
 
   <h4>Info:</h4>
@@ -27,7 +33,7 @@
       {% for task in worker.tasks.all %}
         <tr>
           <td>{{ task.id }}</td>
-          <td><a href="{% url 'task_manager:task-detail' pk=task.id%}">{{ task.name  }}</a></td>
+          <td><a href="{% url 'task_manager:task-detail' pk=task.id %}">{{ task.name }}</a></td>
           <td>{{ task.task_type }}</td>
           <td>{{ task.priority }}</td>
           <td>{{ task.deadline }}</td>
@@ -37,7 +43,7 @@
       {% endfor %}
 
     </table>
-    {% else %}
+  {% else %}
     <h6>No tasks</h6>
   {% endif %}
 {% endblock %}
