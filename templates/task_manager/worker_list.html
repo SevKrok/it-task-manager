@@ -5,25 +5,27 @@
     Workers List
   </h1>
 
-    {% include "includes/search_form.html" %}
-    <br>
+  {% include "includes/search_form.html" %}
+  <br>
 
 
   {% if worker_list %}
     <table class="table">
       <tr>
         <th>ID</th>
+        <th>username</th>
         <th>position</th>
         <th>full name</th>
-        <th>username</th>
         <th>email</th>
       </tr>
       {% for worker in worker_list %}
         <tr>
           <td>{{ worker.id }}</td>
+          <td>
+            <a href="{{ worker.get_absolute_url }}">{{ worker.username }} {% if user == worker %} (Me){% endif %}</a>
+          </td>
           <td>{{ worker.position }}</td>
           <td>{{ worker.get_full_name }}</td>
-          <td>{{ worker.username }}</td>
           <td>{{ worker.email }}</td>
         </tr>
       {% endfor %}

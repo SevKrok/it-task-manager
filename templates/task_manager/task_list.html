@@ -16,13 +16,13 @@
     <table class="table">
       <tr>
         <th>ID</th>
-        <th>name</th>
-        <th>description</th>
-        <th>deadline</th>
-        <th>is completed</th>
-        <th>priority</th>
-        <th>task type</th>
-        <th>assignees</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Deadline</th>
+        <th>Status</th>
+        <th>Priority</th>
+        <th>Task type</th>
+        <th>Assignees</th>
       </tr>
       {% for task in task_list %}
         <tr>
@@ -30,7 +30,7 @@
           <td>{{ task.name }}</td>
           <td>{{ task.description }}</td>
           <td>{{ task.deadline }}</td>
-          <td>{{ task.is_completed }}</td>
+          <td>{% if task.is_completed %} Done {% else %} In work {% endif %}</td>
           <td>{{ task.priority }}</td>
           <td>{{ task.task_type }}</td>
           <td>

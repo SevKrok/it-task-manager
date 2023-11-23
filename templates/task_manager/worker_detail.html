@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+  {{ worker.get_full_name }} {% if worker.id == user.id %}(Me){% endif %}
+  </h1>
+
+  <h4>Info:</h4>
+  <ul style="list-style: none">
+    <li><b>username:</b> {{ worker.username }}</li>
+    <li><b>position:</b> {{ worker.position }}</li>
+    <li><b>email:</b> {{ worker.email }}</li>
+  </ul>
+
+  <h3>Tasks:</h3>
+  {% if worker.tasks.all %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Priority</th>
+        <th>Deadline</th>
+        <th>Status</th>
+        <th>Open it</th>
+      </tr>
+      {% for task in worker.tasks.all %}
+        <tr>
+          <td>{{ task.id }}</td>
+          <td><a href="{% url 'task_manager:task-detail' pk=task.id%}">{{ task.name  }}</a></td>
+          <td>{{ task.task_type }}</td>
+          <td>{{ task.priority }}</td>
+          <td>{{ task.deadline }}</td>
+          <td>{% if task.is_completed %} Done {% else %} In work {% endif %}</td>
+          <td><input type="button" value="Open"></td>
+        </tr>
+      {% endfor %}
+
+    </table>
+    {% else %}
+    <h6>No tasks</h6>
+  {% endif %}
+{% endblock %}

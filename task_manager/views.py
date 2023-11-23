@@ -28,6 +28,11 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
     ordering = ["deadline"]
 
 
+class TaskDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Task
+    queryset = Task.objects.select_related("task_type").prefetch_related("assignees")
+
+
 class WorkerListView(LoginRequiredMixin, generic.ListView):
     model = Worker
     paginate_by = 5
@@ -51,3 +56,8 @@ class WorkerListView(LoginRequiredMixin, generic.ListView):
                 username__icontains=form.cleaned_data["username"]
             )
         return queryset
+
+
+class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Worker
+    queryset = Worker.objects.select_related("position").prefetch_related("tasks")
