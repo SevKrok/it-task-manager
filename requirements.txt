@@ -13,6 +13,7 @@ django-crispy-forms==2.1
 django-debug-toolbar==4.2.0
 flake8==6.1.0
 greenlet==3.0.1
+gunicorn==21.2.0
 mccabe==0.7.0
 mypy-extensions==1.0.0
 packaging==23.2
