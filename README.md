@@ -3,7 +3,16 @@
 
 Project for bringing all your tasks, teammates, and tools together
 
-[db_diagram](https://dbdiagram.io/d/655dfee53be149578783b389)
+* You can create superuser or use this credentials
+```
+login: user
+password: user12345
+```
+
+## Check it out
+[IT Task Manager](https://it-task-manager-8lid.onrender.com/)
+
+[url_to_db_diagram](https://dbdiagram.io/d/655dfee53be149578783b389)
 
 ## Installing
 
@@ -35,16 +44,11 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-* Make database and load fixture
+* Make data base and load fixture
 ```shell
 python manage.py makemigrations
 python manage.py migrate
 python manage.py loaddata db.json
-```
-
-* Create admin for login
-```shell
-python manage.py createsuperuser
 ```
 
 
@@ -54,9 +58,6 @@ python manage.py createsuperuser
 * Admin panel for advanced managing
 * Worker can see his tasks on his account page
 * And can see how many tasks he has on home page
-
-## Check it out
-[IT Task Manager](https://it-task-manager-8lid.onrender.com/)
 
 ## Demo
 
