@@ -26,17 +26,20 @@ def index(request: HttpRequest) -> HttpResponse:
     num_visits = request.session.get("num_visits", 0)
     request.session["num_visits"] = num_visits + 1
 
-    worker_with_task_count = (
-        Worker.objects.prefetch_related("tasks")
-        .filter(id=request.user.id, tasks__is_completed=False)
-        .annotate(tasks_count=Count("tasks"))
-        .first()
-    )
-
     context = {
         "num_visits": num_visits + 1,
-        "num_tasks": worker_with_task_count.tasks_count,
     }
+
+    if Worker.objects.prefetch_related("tasks").filter(id=request.user.id, tasks__is_completed=False):
+        worker_with_task_count = (
+            Worker.objects.prefetch_related("tasks")
+            .filter(id=request.user.id, tasks__is_completed=False)
+            .annotate(tasks_count=Count("tasks"))
+            .first()
+        )
+        context["num_tasks"] = worker_with_task_count.tasks_count
+    else:
+        context["num_tasks"] = 0
 
     return render(request, "task_manager/index.html", context=context)
 
