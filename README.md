@@ -4,7 +4,7 @@
 Project for bringing all your tasks, teammates, and tools together
 
 ## Check it out
-[url_to_my_deployed_proj](url)
+[IT Task Manager](https://it-task-manager-8lid.onrender.com/)
 
 [url_to_db_diagram](https://dbdiagram.io/d/655dfee53be149578783b389)
 
