@@ -12,10 +12,7 @@ class Position(models.Model):
 
 class Worker(AbstractUser):
     position = models.ForeignKey(
-        Position,
-        on_delete=models.SET_NULL,
-        related_name="workers",
-        null=True
+        Position, on_delete=models.SET_NULL, related_name="workers", null=True
     )
 
     class Meta:
@@ -23,7 +20,10 @@ class Worker(AbstractUser):
         verbose_name_plural = "workers"
 
     def __str__(self):
-        return f"{self.get_full_name()}, username: {self.username}, position: {self.position}"
+        return (
+            f"{self.get_full_name()}, "
+            f"username: {self.username}, position: {self.position}"
+        )
 
     def get_absolute_url(self):
         return reverse("task_manager:worker-detail", kwargs={"pk": self.pk})
@@ -48,11 +48,13 @@ class Task(models.Model):
     deadline = models.DateTimeField()
     is_completed = models.BooleanField()
     priority = models.CharField(
-        max_length=6,
-        choices=Priority.choices,
-        default=Priority.MEDIUM
+        max_length=6, choices=Priority.choices, default=Priority.MEDIUM
     )
-    task_type = models.ForeignKey(TaskType, on_delete=models.SET_NULL, null=True)
+    task_type = models.ForeignKey(
+        TaskType,
+        on_delete=models.SET_NULL,
+        null=True
+    )
     assignees = models.ManyToManyField(Worker, related_name="tasks")
 
     def __str__(self):

@@ -351,6 +351,71 @@
     }
   },
   {
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+      "action_time": "2023-11-23T13:46:25.455Z",
+      "user": 11,
+      "content_type": 6,
+      "object_id": "1",
+      "object_repr": "Admin A, username: admin, position: Developer",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Position\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+      "action_time": "2023-11-23T13:46:49.327Z",
+      "user": 11,
+      "content_type": 6,
+      "object_id": "11",
+      "object_repr": "Admin First, username: admin.admin, position: Project Manager",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Position\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+      "action_time": "2023-11-23T13:58:22.415Z",
+      "user": 11,
+      "content_type": 6,
+      "object_id": "12",
+      "object_repr": "Kateruna Girko, username: Katrya, position: Designer",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+      "action_time": "2023-11-23T14:18:40.000Z",
+      "user": 11,
+      "content_type": 9,
+      "object_id": "7",
+      "object_repr": "Task: make tasks, status: Completed, priority: H",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+      "action_time": "2023-11-23T14:32:01.572Z",
+      "user": 11,
+      "content_type": 9,
+      "object_id": "7",
+      "object_repr": "Task: make tasks, status: Completed, priority: H",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+  },
+  {
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -748,10 +813,26 @@
   },
   {
     "model": "sessions.session",
-    "pk": "0rjz1q4cu41pkyjyj5g83oyw3jvgew0e",
+    "pk": "39dzeb4kqjl8df7zi9v50pteh5qks6q1",
     "fields": {
-      "session_data": ".eJxVjEEOwiAQRe_C2hCgZQCX7j0DmWFAqoYmpV0Z765NutDtf-_9l4i4rTVuPS9xYnEWWpx-N8L0yG0HfMd2m2Wa27pMJHdFHrTL68z5eTncv4OKvX5rxyqYESwWImeBVAq2wODGYJPipJ0yxZEB7WzxoLHYMAAgJe-ZkLN4fwDQeTfh:1r5pLf:sapvuZBajMqJUkExWEIjgFZ3ngzeBc6lrB4u8sDG0kM",
-      "expire_date": "2023-12-06T15:41:07.943Z"
+      "session_data": ".eJxVjDsOwyAQBe9CHaGA-dllep8BLcsSkw9Ixk4T5e6xJRdJ-2bevJmHdZn82mj2ObKBCcFOv2MAvFPZSbxBuVaOtSxzDnxX-EEbH2ukx-Vw_wITtGl7q6SdthR67MjpGJQJEklSj0r2KWLqhAR7JiNBK5uc1cIFYwVqFxGc3KJlffpXbnlpbFDm8wXKQj2w:1r6SZ3:1x7h1heNO3miFh5EGPF96UrUiQu3nUcXHyIVEfDOeec",
+      "expire_date": "2023-12-08T09:33:33.247Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "6nwaqi85epnu66jk2a76cm6rsthzwsop",
+    "fields": {
+      "session_data": ".eJxVjDsOwyAQBe9CHaGA-dllep8BLcsSkw9Ixk4T5e6xJRdJ-2bevJmHdZn82mj2ObKBCcFOv2MAvFPZSbxBuVaOtSxzDnxX-EEbH2ukx-Vw_wITtGl7q6SdthR67MjpGJQJEklSj0r2KWLqhAR7JiNBK5uc1cIFYwVqFxGc3KJlffpXbnlpbDCfL4zdPXw:1r6BzA:14bzqwzz0fkxttMH1e6D4WKkjcA46iM4Qok0MMQTrPY",
+      "expire_date": "2023-12-07T15:51:24.804Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "oztrboqfc544k9p4j48bga8glr9ifxxt",
+    "fields": {
+      "session_data": ".eJxVjDsOwyAQBe9CHaGAwYDL9D4DWpYlkA-WjJ0myt1jSy6S9s28eTMP65L92mj2JbKBCcFOv2MAvFPdSbxBvU4cp7rMJfBd4QdtfJwiPS6H-xfI0PL2VklbbSg47MjqGFQfJJIkh0q6FDF1QoI5Uy9BK5Os0cKG3gjUNiJYuUXr-vSv0srS2NB9vozXPXk:1r6Dmy:iGVAmLjrKmP8BGkHDxqBBjbX0UN3AIXEq08oM8UI0I0",
+      "expire_date": "2023-12-07T17:46:56.221Z"
     }
   },
   {
@@ -790,20 +871,27 @@
     }
   },
   {
+    "model": "task_manager.position",
+    "pk": 6,
+    "fields": {
+      "name": "Cleaner"
+    }
+  },
+  {
     "model": "task_manager.worker",
     "pk": 1,
     "fields": {
       "password": "pbkdf2_sha256$600000$wtlL9VAd2kSGOyM2L5L26R$8W+D84wSUU1qqMaBwXXj6gIIrVsJkXLWX6BCEQ8XU0I=",
-      "last_login": "2023-11-22T15:41:07.939Z",
+      "last_login": "2023-11-22T15:41:07Z",
       "is_superuser": true,
       "username": "admin",
-      "first_name": "",
-      "last_name": "",
+      "first_name": "Admin",
+      "last_name": "A",
       "email": "admin@admin.com",
       "is_staff": true,
       "is_active": true,
-      "date_joined": "2023-11-22T15:40:55.849Z",
-      "position": null,
+      "date_joined": "2023-11-22T15:40:55Z",
+      "position": 1,
       "groups": [],
       "user_permissions": []
     }
@@ -980,6 +1068,44 @@
     }
   },
   {
+    "model": "task_manager.worker",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$w8XK6wDcU5Oiu9vgCIQkc0$BLa+Pkditz/vuN9VXC+qdrPpekbwxl/5a4MlPAx+kLA=",
+      "last_login": "2023-11-24T05:49:16.897Z",
+      "is_superuser": true,
+      "username": "admin.admin",
+      "first_name": "Admin",
+      "last_name": "Main",
+      "email": "admin1@admin.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-11-23T10:17:05Z",
+      "position": 2,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "task_manager.worker",
+    "pk": 12,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$jIuNYXAyh2jjLozE26vmla$42MJYT79hnl6Q273w0ROJBZ0sDpE2fDF/NJ+MgGVUfw=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Katrya",
+      "first_name": "Kateruna",
+      "last_name": "Girko",
+      "email": "kategirko@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-11-23T13:58:22.267Z",
+      "position": 4,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
     "model": "task_manager.tasktype",
     "pk": 1,
     "fields": {
@@ -1022,6 +1148,13 @@
     }
   },
   {
+    "model": "task_manager.tasktype",
+    "pk": 7,
+    "fields": {
+      "name": "Make Task"
+    }
+  },
+  {
     "model": "task_manager.task",
     "pk": 1,
     "fields": {
@@ -1032,7 +1165,8 @@
       "priority": "U",
       "task_type": 5,
       "assignees": [
-        5
+        5,
+        11
       ]
     }
   },
@@ -1047,7 +1181,8 @@
       "priority": "M",
       "task_type": 6,
       "assignees": [
-        8
+        8,
+        11
       ]
     }
   },
@@ -1072,33 +1207,19 @@
   },
   {
     "model": "task_manager.task",
-    "pk": 4,
-    "fields": {
-      "name": "test2",
-      "description": "ggggg",
-      "deadline": "2024-03-15T16:19:24Z",
-      "is_completed": false,
-      "priority": "H",
-      "task_type": 4,
-      "assignees": [
-        2
-      ]
-    }
-  },
-  {
-    "model": "task_manager.task",
     "pk": 5,
     "fields": {
       "name": "hello",
       "description": "hello world",
       "deadline": "2023-11-29T22:00:00Z",
-      "is_completed": false,
+      "is_completed": true,
       "priority": "U",
       "task_type": 3,
       "assignees": [
         4,
         8,
-        9
+        9,
+        11
       ]
     }
   },
@@ -1114,7 +1235,99 @@
       "task_type": 1,
       "assignees": [
         2,
-        7
+        7,
+        11
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 7,
+    "fields": {
+      "name": "make tasks",
+      "description": "PM pls make tasks for team",
+      "deadline": "2023-11-29T22:00:00Z",
+      "is_completed": true,
+      "priority": "H",
+      "task_type": 2,
+      "assignees": [
+        4,
+        6
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 8,
+    "fields": {
+      "name": "daf",
+      "description": "fdsfdcvcx",
+      "deadline": "2020-11-19T22:00:00Z",
+      "is_completed": false,
+      "priority": "M",
+      "task_type": 1,
+      "assignees": [
+        6
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 9,
+    "fields": {
+      "name": "daf",
+      "description": "fdsfdcvcx",
+      "deadline": "2020-11-19T22:00:00Z",
+      "is_completed": false,
+      "priority": "M",
+      "task_type": 1,
+      "assignees": [
+        6
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 10,
+    "fields": {
+      "name": "daf",
+      "description": "fdsfdcvcx",
+      "deadline": "2020-11-19T22:00:00Z",
+      "is_completed": false,
+      "priority": "M",
+      "task_type": 1,
+      "assignees": [
+        6
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 11,
+    "fields": {
+      "name": "rgerg",
+      "description": "ffgerg",
+      "deadline": "2020-10-09T21:00:00Z",
+      "is_completed": false,
+      "priority": "M",
+      "task_type": 1,
+      "assignees": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 12,
+    "fields": {
+      "name": "rgerg",
+      "description": "ffgerg",
+      "deadline": "2024-10-09T21:00:00Z",
+      "is_completed": false,
+      "priority": "M",
+      "task_type": 1,
+      "assignees": [
+        1
       ]
     }
   }
