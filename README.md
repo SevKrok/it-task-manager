@@ -1,4 +1,4 @@
-# It Task Manager 
+# IT Task Manager 
 > Additional information
 
 Project for bringing all your tasks, teammates, and tools together
