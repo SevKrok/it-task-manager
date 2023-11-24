@@ -38,11 +38,16 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-* Make data base and load fixture
+* Make database and load fixture
 ```shell
 python manage.py makemigrations
 python manage.py migrate
 python manage.py loaddata db.json
+```
+
+* Create admin for login
+```shell
+python manage.py createsuperuser
 ```
 
 
