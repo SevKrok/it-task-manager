@@ -9,8 +9,10 @@ from task_manager.models import Worker, Task, TaskType, Position
 
 def validate_deadline(deadline):
     datetime_now = timezone.now()
-    if deadline < datetime_now:
-        raise ValidationError("Deadline must be no earlier than today")
+    if deadline <= datetime_now:
+        raise ValidationError(
+            "Oops! This deadline is not realistic. Try picking another time."
+        )
 
     return deadline
 
@@ -19,17 +21,13 @@ class TaskCreationForm(forms.ModelForm):
     assignees = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple,
-        required=False
+        required=False,
     )
     deadline = forms.DateTimeField(
         help_text="year-moth-day 00:00:00",
-        widget=forms.DateTimeInput(
-            attrs={
-                'class': 'datetime-input'
-            }
-        ),
-        input_formats=['%Y-%m-%d %H:%M:%S'],
-        validators=[validate_deadline]
+        widget=forms.DateTimeInput(attrs={"class": "datetime-input"}),
+        input_formats=["%Y-%m-%d %H:%M:%S"],
+        validators=[validate_deadline],
     )
 
     class Meta:
@@ -41,17 +39,13 @@ class TaskUpdateForm(forms.ModelForm):
     assignees = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple,
-        required=False
+        required=False,
     )
     deadline = forms.DateTimeField(
         help_text="year-moth-day 00:00:00",
-        widget=forms.DateTimeInput(
-            attrs={
-                'class': 'datetime-input'
-            }
-        ),
-        input_formats=['%Y-%m-%d %H:%M:%S'],
-        validators=[validate_deadline]
+        widget=forms.DateTimeInput(attrs={"class": "datetime-input"}),
+        input_formats=["%Y-%m-%d %H:%M:%S"],
+        validators=[validate_deadline],
     )
 
     class Meta:
@@ -64,11 +58,7 @@ class TaskSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(
-            attrs={
-                "placeholder": "Search by task type"
-            }
-        )
+        widget=forms.TextInput(attrs={"placeholder": "Search by task type"}),
     )
 
 
@@ -105,11 +95,7 @@ class WorkerSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(
-            attrs={
-                "placeholder": "Search by username"
-            }
-        )
+        widget=forms.TextInput(attrs={"placeholder": "Search by username"}),
     )
 
 

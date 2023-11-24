@@ -6,8 +6,16 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from task_manager.forms import WorkerSearchForm, WorkerCreationForm, WorkerUpdateForm, TaskUpdateForm, TaskSearchForm, \
-    TaskCreationForm, TaskTypeCreationForm, PositionCreationForm
+from task_manager.forms import (
+    WorkerSearchForm,
+    WorkerCreationForm,
+    WorkerUpdateForm,
+    TaskUpdateForm,
+    TaskSearchForm,
+    TaskCreationForm,
+    TaskTypeCreationForm,
+    PositionCreationForm,
+)
 from task_manager.models import Task, Worker, TaskType, Position
 
 
@@ -18,14 +26,16 @@ def index(request: HttpRequest) -> HttpResponse:
     num_visits = request.session.get("num_visits", 0)
     request.session["num_visits"] = num_visits + 1
 
-    worker_with_task_count = Worker.objects.prefetch_related("tasks").filter(
-        id=request.user.id,
-        tasks__is_completed=False
-    ).annotate(tasks_count=Count("tasks")).first()
+    worker_with_task_count = (
+        Worker.objects.prefetch_related("tasks")
+        .filter(id=request.user.id, tasks__is_completed=False)
+        .annotate(tasks_count=Count("tasks"))
+        .first()
+    )
 
     context = {
         "num_visits": num_visits + 1,
-        "num_tasks": worker_with_task_count.tasks_count
+        "num_tasks": worker_with_task_count.tasks_count,
     }
 
     return render(request, "task_manager/index.html", context=context)
@@ -33,17 +43,17 @@ def index(request: HttpRequest) -> HttpResponse:
 
 class TaskListView(LoginRequiredMixin, generic.ListView):
     model = Task
-    queryset = Task.objects.select_related("task_type").prefetch_related("assignees")
+    queryset = Task.objects.select_related(
+        "task_type"
+    ).prefetch_related("assignees")
     ordering = ["deadline"]
-    paginate_by = 5
+    paginate_by = 4
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         task_type = self.request.GET.get("task_type", "")
         context["search_form"] = TaskSearchForm(
-            initial={
-                "task_type": task_type
-            }
+            initial={"task_type": task_type}
         )
         return context
 
@@ -59,7 +69,9 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
 
 class TaskDetailView(LoginRequiredMixin, generic.DetailView):
     model = Task
-    queryset = Task.objects.select_related("task_type").prefetch_related("assignees")
+    queryset = Task.objects.select_related(
+        "task_type"
+    ).prefetch_related("assignees")
 
 
 class TaskCreateView(LoginRequiredMixin, generic.CreateView):
@@ -86,7 +98,7 @@ def change_task_status(request, pk):
     task.is_completed = not task.is_completed
     task.save()
 
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
 
 @login_required
@@ -117,9 +129,7 @@ class WorkerListView(LoginRequiredMixin, generic.ListView):
         context = super().get_context_data(**kwargs)
         username = self.request.GET.get("username", "")
         context["search_form"] = WorkerSearchForm(
-            initial={
-                "username": username
-            }
+            initial={"username": username}
         )
         return context
 
@@ -135,7 +145,9 @@ class WorkerListView(LoginRequiredMixin, generic.ListView):
 
 class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
     model = Worker
-    queryset = Worker.objects.select_related("position").prefetch_related("tasks")
+    queryset = Worker.objects.select_related(
+        "position"
+    ).prefetch_related("tasks")
 
 
 class WorkerCreateView(LoginRequiredMixin, generic.CreateView):
