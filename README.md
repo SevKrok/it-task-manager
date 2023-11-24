@@ -1,7 +1,13 @@
-# It Task Manager 
+# IT Task Manager 
 > Additional information
 
 Project for bringing all your tasks, teammates, and tools together
+
+* You can create superuser or use this credentials
+```
+login: user
+password: user12345
+```
 
 ## Check it out
 [IT Task Manager](https://it-task-manager-8lid.onrender.com/)
