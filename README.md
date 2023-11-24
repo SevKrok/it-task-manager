@@ -3,10 +3,7 @@
 
 Project for bringing all your tasks, teammates, and tools together
 
-## Check it out
-[IT Task Manager](https://it-task-manager-8lid.onrender.com/)
-
-[url_to_db_diagram](https://dbdiagram.io/d/655dfee53be149578783b389)
+[db_diagram](https://dbdiagram.io/d/655dfee53be149578783b389)
 
 ## Installing
 
@@ -57,6 +54,9 @@ python manage.py createsuperuser
 * Admin panel for advanced managing
 * Worker can see his tasks on his account page
 * And can see how many tasks he has on home page
+
+## Check it out
+[IT Task Manager](https://it-task-manager-8lid.onrender.com/)
 
 ## Demo
 
