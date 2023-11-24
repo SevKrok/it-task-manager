@@ -28,7 +28,6 @@
         <th>Priority</th>
         <th>Deadline</th>
         <th>Status</th>
-        <th>Open it</th>
       </tr>
       {% for task in worker.tasks.all %}
         <tr>
@@ -37,8 +36,11 @@
           <td>{{ task.task_type }}</td>
           <td>{{ task.priority }}</td>
           <td>{{ task.deadline }}</td>
-          <td>{% if task.is_completed %} Done {% else %} In work {% endif %}</td>
-          <td><input type="button" value="Open"></td>
+          <td>
+            <a href="{% url 'task_manager:change-task-status' pk=task.id %}">
+              {% if task.is_completed %} Done {% else %} In work {% endif %}
+            </a>
+          </td>
         </tr>
       {% endfor %}
 

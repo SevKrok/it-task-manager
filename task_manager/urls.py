@@ -9,7 +9,9 @@ from task_manager.views import (index,
                                 WorkerUpdateView,
                                 TaskUpdateView,
                                 TaskDeleteView,
-                                TaskCreateView)
+                                TaskCreateView,
+                                assign_worker_to_tasks,
+                                delete_worker_from_tasks, change_task_status, TaskTypeCreateView, PositionCreateView)
 
 urlpatterns = [
     path("", index, name="index"),
@@ -19,11 +21,24 @@ urlpatterns = [
     path("tasks/create/", TaskCreateView.as_view(), name="task-create"),
     path("tasks/<int:pk>/update/", TaskUpdateView.as_view(), name="task-update"),
     path("tasks/<int:pk>/delete/", TaskDeleteView.as_view(), name="task-delete"),
+    path(
+        "tasks/<int:pk>/worker-assign/",
+        assign_worker_to_tasks,
+        name="assign-worker-to-tasks"
+    ),
+    path(
+        "tasks/<int:pk>/worker-delete/",
+        delete_worker_from_tasks,
+        name="delete-worker-from-tasks"
+    ),
+    path("tasks/<int:pk>/change-task-status/", change_task_status, name="change-task-status"),
+    path("tasks/task-type-create", TaskTypeCreateView.as_view(), name="task-type-create"),
 
     path("workers/", WorkerListView.as_view(), name="worker-list"),
     path("workers/<int:pk>/", WorkerDetailView.as_view(), name="worker-detail"),
     path("workers/create/", WorkerCreateView.as_view(), name="worker-create"),
     path("workers/<int:pk>/update/", WorkerUpdateView.as_view(), name="worker-update"),
+    path("workers/position-create", PositionCreateView.as_view(), name="position-create"),
 
 ]
 

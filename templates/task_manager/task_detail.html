@@ -2,9 +2,12 @@
 
 {% block content %}
   <h1>
-  <b>Task type:</b> {{ task.task_type }}<br>
-  <b>Priority:</b> {{ task.get_priority_display }}<br>
+    <b>Task type:</b> {{ task.task_type }}<br>
+    <b>Priority:</b> {{ task.get_priority_display }}<br>
     <b>Status:</b> {% if task.is_completed %} Done {% else %} In work {% endif %}
+    <a href="{% url 'task_manager:task-update' pk=task.id %}">
+      UPDATE
+    </a>
 
   </h1>
   <hr>
@@ -18,6 +21,15 @@
   <hr>
 
   <h3>Assignees:</h3>
+  {% if request.user in task.assignees.all %}
+    <a href="{% url 'task_manager:delete-worker-from-tasks' pk=task.id %}" class="btn btn-danger link-to-page">
+      Delete me from this task
+    </a>
+  {% else %}
+    <a href="{% url 'task_manager:assign-worker-to-tasks' pk=task.id %}" class="btn btn-primary link-to-page">
+      Assign me to this task
+    </a>
+  {% endif %}
 
   {% if task.assignees %}
     <table class="table">
@@ -32,7 +44,8 @@
         <tr>
           <td>{{ assignee.id }}</td>
           <td>
-            <a href="{{ assignee.get_absolute_url }}">{{ assignee.username }} {% if user == assignee %} (Me){% endif %}</a>
+            <a href="{{ assignee.get_absolute_url }}">{{ assignee.username }} {% if user == assignee %}
+              (Me){% endif %}</a>
           </td>
           <td>{{ assignee.position }}</td>
           <td>{{ assignee.get_full_name }}</td>

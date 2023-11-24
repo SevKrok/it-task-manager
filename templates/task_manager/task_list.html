@@ -6,10 +6,13 @@
     <a href="{% url 'task_manager:task-create' %}" class="btn btn-primary link-to-page">
       Create
     </a>
+    <a href="{% url 'task_manager:task-type-create' %}" class="btn btn-secondary link-to-page">
+      Add task type
+    </a>
   </h1>
 
-    {% include "includes/search_form.html" %}
-    <br>
+  {% include "includes/search_form.html" %}
+  <br>
 
 
   {% if task_list %}
@@ -32,7 +35,11 @@
           <td><a href="{% url 'task_manager:task-detail' pk=task.id %}">{{ task.name }}</a></td>
           <td>{{ task.description }}</td>
           <td>{{ task.deadline }}</td>
-          <td>{% if task.is_completed %} Done {% else %} In work {% endif %}</td>
+          <td>
+            <a href="{% url 'task_manager:change-task-status' pk=task.id %}">
+              {% if task.is_completed %} Done {% else %} In work {% endif %}
+            </a>
+          </td>
           <td>{{ task.priority }}</td>
           <td>{{ task.task_type }}</td>
           <td>

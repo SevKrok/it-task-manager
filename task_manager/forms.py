@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django.utils import timezone
 
-from task_manager.models import Worker, Task
+from task_manager.models import Worker, Task, TaskType, Position
 
 
 def validate_deadline(deadline):
@@ -72,6 +72,12 @@ class TaskSearchForm(forms.Form):
     )
 
 
+class TaskTypeCreationForm(forms.ModelForm):
+    class Meta:
+        model = TaskType
+        fields = "__all__"
+
+
 class WorkerCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Worker
@@ -105,3 +111,9 @@ class WorkerSearchForm(forms.Form):
             }
         )
     )
+
+
+class PositionCreationForm(forms.ModelForm):
+    class Meta:
+        model = Position
+        fields = "__all__"
