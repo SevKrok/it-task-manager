@@ -114,12 +114,6 @@ def assign_delete_worker_to_tasks(request: HttpRequest, pk: int) -> HttpResponse
     return reverse_lazy("task_manager:task-detail", pk=pk)
 
 
-@login_required
-def delete_worker_from_tasks(request: HttpRequest, pk: int) -> HttpResponse:
-    Task.objects.get(id=pk).assignees.remove(request.user)
-    return redirect(f"/tasks/{pk}/")
-
-
 class TaskTypeCreateView(LoginRequiredMixin, generic.CreateView):
     model = TaskType
     template_name = "task_manager/task_type_form.html"
