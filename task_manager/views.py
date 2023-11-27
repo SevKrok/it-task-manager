@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Count
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -108,9 +108,9 @@ def change_task_status(request, pk):
 def assign_delete_worker_to_tasks(request: HttpRequest, pk: int) -> HttpResponse:
     worker = Worker.objects.prefetch_related("tasks").get(id=request.user.id)
     if Task.objects.get(id=pk) in worker.tasks.all():
-        worker.tasks.remove(pk)
+        worker.tasks.remove(id=pk)
     else:
-        worker.tasks.add(pk)
+        worker.tasks.add(id=pk)
     return HttpResponseRedirect(reverse_lazy("task_manager:task-detail", args=[pk]))
 
 
