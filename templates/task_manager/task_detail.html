@@ -22,11 +22,11 @@
 
   <h3>Assignees:</h3>
   {% if request.user in task.assignees.all %}
-    <a href="{% url 'task_manager:assign-delete-worker-to-tasks' pk=task.id %}" class="btn btn-danger link-to-page">
+    <a href="{% url 'task_manager:assign-delete-worker-to-task' pk=task.id %}" class="btn btn-danger link-to-page">
       Delete me from this task
     </a>
   {% else %}
-    <a href="{% url 'task_manager:assign-delete-worker-to-tasks' pk=task.id %}" class="btn btn-primary link-to-page">
+    <a href="{% url 'task_manager:assign-delete-worker-to-task' pk=task.id %}" class="btn btn-primary link-to-page">
       Assign me to this task
     </a>
   {% endif %}
