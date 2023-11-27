@@ -104,16 +104,6 @@ def change_task_status(request, pk):
     return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
 
-# @login_required
-# def assign_delete_worker_to_tasks(request: HttpRequest, pk: int) -> HttpResponse:
-#     worker = Worker.objects.get(id=request.user.id)
-#     if Task.objects.get(id=pk) in worker.tasks.all():
-#         worker.tasks.remove(pk)
-#     else:
-#         worker.tasks.add(pk)
-#     return HttpResponseRedirect(reverse_lazy("task_manager:task-detail", args=[pk]))
-
-
 @login_required
 def assign_delete_worker_to_task(request: HttpRequest, pk: int) -> HttpResponse:
     worker = Worker.objects.get(id=request.user.id)
