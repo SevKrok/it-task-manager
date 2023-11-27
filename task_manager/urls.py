@@ -11,8 +11,7 @@ from task_manager.views import (
     TaskUpdateView,
     TaskDeleteView,
     TaskCreateView,
-    assign_worker_to_tasks,
-    delete_worker_from_tasks,
+    assign_delete_worker_to_tasks,
     change_task_status,
     TaskTypeCreateView,
     PositionCreateView,
@@ -35,13 +34,8 @@ urlpatterns = [
     ),
     path(
         "tasks/<int:pk>/worker-assign/",
-        assign_worker_to_tasks,
-        name="assign-worker-to-tasks",
-    ),
-    path(
-        "tasks/<int:pk>/worker-delete/",
-        delete_worker_from_tasks,
-        name="delete-worker-from-tasks",
+        assign_delete_worker_to_tasks,
+        name="assign-delete-worker-to-tasks",
     ),
     path(
         "tasks/<int:pk>/change-task-status/",

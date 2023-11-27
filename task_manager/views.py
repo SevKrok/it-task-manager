@@ -105,9 +105,13 @@ def change_task_status(request, pk):
 
 
 @login_required
-def assign_worker_to_tasks(request: HttpRequest, pk: int) -> HttpResponse:
-    Task.objects.get(id=pk).assignees.add(request.user)
-    return redirect(f"/tasks/{pk}/")
+def assign_delete_worker_to_tasks(request: HttpRequest, pk: int) -> HttpResponse:
+    task = Task.objects.prefetch_related("assignees").get(id=pk)
+    if request.user in task.assignees.all():
+        task.assignees.remove(request.user)
+    else:
+        task.assignees.add(request.user)
+    return reverse_lazy("task_manager:task-detail", pk=pk)
 
 
 @login_required
