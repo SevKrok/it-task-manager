@@ -33,7 +33,7 @@ urlpatterns = [
         name="task-delete"
     ),
     path(
-        "tasks/<int:pk>/worker-assign/",
+        "tasks/<int:pk>/worker-assign-delete/",
         assign_delete_worker_to_tasks,
         name="assign-delete-worker-to-tasks",
     ),
