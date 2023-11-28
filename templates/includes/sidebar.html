@@ -5,14 +5,14 @@
       account_circle
     </span>
       <a href="{{ user.get_absolute_url }}"
-         class="fs-4 mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">{{ user.get_username }}</a>
+         class="fs-4 mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" style="font-size: 1.5rem;">{{ user.get_username }}</a>
     </div>
     <div class="d-flex align-items-center">
     <span class="material-symbols-outlined" style="margin-right: 0.5rem;">
       input
     </span>
       <a class="fs-5 mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
-         href="{% url 'logout' %}?next={{ request.path }}">
+         href="{% url 'logout' %}?next={{ request.path }}" style="font-size: 1.5rem;">
         Logout
       </a>
     </div>
@@ -22,7 +22,7 @@
       input
     </span>
       <a class="fs-5 mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
-         href="{% url 'login' %}?next={{ request.path }}">
+         href="{% url 'login' %}?next={{ request.path }}" style="font-size: 1.5rem;">
         Login
       </a>
     </div>
