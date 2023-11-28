@@ -16,14 +16,16 @@
 
 
   {% if worker_list %}
-    <table class="table">
+    <table class="table table-striped w-75">
+    <thead>
       <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>Position</th>
-        <th>Full name</th>
-        <th>Email</th>
+        <th scope="col">ID</th>
+        <th scope="col">Username</th>
+        <th scope="col">Position</th>
+        <th scope="col">Full name</th>
+        <th scope="col">Email</th>
       </tr>
+    </thead>
       {% for worker in worker_list %}
         <tr>
           <td>{{ worker.id }}</td>

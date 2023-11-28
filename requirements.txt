@@ -1,4 +1,5 @@
 asgiref==3.7.2
+beautifulsoup4==4.12.2
 black==23.11.0
 click==8.0.0
 click-aliases==1.0.1
@@ -6,7 +7,7 @@ click-default-group==1.2.4
 click-help-colors==0.9.4
 colorama==0.4.6
 commonmark==0.9.1
-crispy-bootstrap4==2023.1
+crispy-bootstrap5==2023.10
 dj-database-url==2.1.0
 Django==4.2.7
 django-crispy-forms==2.1
@@ -27,6 +28,7 @@ python-dateutil==2.8.2
 python-dotenv==1.0.0
 rich==9.13.0
 six==1.16.0
+soupsieve==2.5
 SQLAlchemy==1.4.50
 sqlparse==0.4.4
 tabulate==0.8.10
