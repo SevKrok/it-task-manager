@@ -5,13 +5,14 @@
       account_circle
     </span>
       <a href="{{ user.get_absolute_url }}"
-         class="fs-4 mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">{{ user.get_username }}</a>
+         class="fs-4 mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">{{ user.get_username }}</a>
     </div>
     <div class="d-flex align-items-center">
     <span class="material-symbols-outlined" style="margin-right: 0.5rem;">
       input
     </span>
-      <a class="fs-5 mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" href="{% url 'logout' %}?next={{ request.path }}">
+      <a class="fs-5 mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+         href="{% url 'logout' %}?next={{ request.path }}">
         Logout
       </a>
     </div>
@@ -20,25 +21,26 @@
     <span class="material-symbols-outlined" style="margin-right: 0.5rem;">
       input
     </span>
-      <a class="fs-5 mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" href="{% url 'login' %}?next={{ request.path }}">
+      <a class="fs-5 mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+         href="{% url 'login' %}?next={{ request.path }}">
         Login
       </a>
     </div>
   {% endif %}
-  <hr>
+  <hr class="w-100">
   {% with request.resolver_match.url_name as url_name %}
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
         <a href="{% url 'task_manager:index' %}"
-           class="nav-link {% if url_name == 'index' %}active{% else %}link-dark{% endif %}">Home</a>
+           class="nav-link {% if url_name == 'index' %}active{% else %}text-dark{% endif %}">Home</a>
       </li>
       <li>
         <a href="{% url 'task_manager:task-list' %}"
-           class="nav-link {% if url_name == 'task-list' %}active{% else %}link-dark{% endif %}">All tasks</a>
+           class="nav-link {% if url_name == 'task-list' %}active{% else %}text-dark{% endif %}">All tasks</a>
       </li>
       <li>
         <a href="{% url 'task_manager:worker-list' %}"
-           class="nav-link {% if url_name == 'worker-list' %}active{% else %}link-dark{% endif %}">All workers</a>
+           class="nav-link {% if url_name == 'worker-list' %}active{% else %}text-dark{% endif %}">All workers</a>
       </li>
     </ul>
   {% endwith %}

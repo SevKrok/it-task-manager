@@ -3,13 +3,13 @@
 {% block content %}
   <h1>
     Workers List
-    <a href="{% url 'task_manager:worker-create' %}" class="btn btn-primary link-to-page">
-      Create
-    </a>
-    <a href="{% url 'task_manager:position-create' %}" class="btn btn-secondary link-to-page">
-      Add position
-    </a>
   </h1>
+  <a href="{% url 'task_manager:worker-create' %}" class="btn btn-primary link-to-page mb-2">
+    Create
+  </a>
+  <a href="{% url 'task_manager:position-create' %}" class="btn btn-secondary link-to-page mb-2">
+    Add position
+  </a>
 
   {% include "includes/search_form.html" %}
   <br>
@@ -17,7 +17,7 @@
 
   {% if worker_list %}
     <table class="table table-striped w-75">
-    <thead>
+      <thead>
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Username</th>
@@ -25,7 +25,7 @@
         <th scope="col">Full name</th>
         <th scope="col">Email</th>
       </tr>
-    </thead>
+      </thead>
       {% for worker in worker_list %}
         <tr>
           <td>{{ worker.id }}</td>
