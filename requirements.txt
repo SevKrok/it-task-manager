@@ -7,7 +7,7 @@ click-default-group==1.2.4
 click-help-colors==0.9.4
 colorama==0.4.6
 commonmark==0.9.1
-crispy-bootstrap5==2023.10
+crispy-bootstrap4==2023.1
 dj-database-url==2.1.0
 Django==4.2.7
 django-crispy-forms==2.1
