@@ -12,7 +12,10 @@ class Position(models.Model):
 
 class Worker(AbstractUser):
     position = models.ForeignKey(
-        Position, on_delete=models.SET_NULL, related_name="workers", null=True
+        Position,
+        on_delete=models.SET_NULL,
+        related_name="workers",
+        null=True
     )
 
     class Meta:
@@ -48,7 +51,9 @@ class Task(models.Model):
     deadline = models.DateTimeField()
     is_completed = models.BooleanField()
     priority = models.CharField(
-        max_length=6, choices=Priority.choices, default=Priority.MEDIUM
+        max_length=6,
+        choices=Priority.choices,
+        default=Priority.MEDIUM
     )
     task_type = models.ForeignKey(
         TaskType,
