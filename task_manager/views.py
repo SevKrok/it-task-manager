@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Count
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -105,15 +105,13 @@ def change_task_status(request, pk):
 
 
 @login_required
-def assign_worker_to_tasks(request: HttpRequest, pk: int) -> HttpResponse:
-    Task.objects.get(id=pk).assignees.add(request.user)
-    return redirect(f"/tasks/{pk}/")
-
-
-@login_required
-def delete_worker_from_tasks(request: HttpRequest, pk: int) -> HttpResponse:
-    Task.objects.get(id=pk).assignees.remove(request.user)
-    return redirect(f"/tasks/{pk}/")
+def assign_delete_worker_to_task(request: HttpRequest, pk: int) -> HttpResponse:
+    worker = Worker.objects.get(id=request.user.id)
+    if Task.objects.get(id=pk) in worker.tasks.all():
+        worker.tasks.remove(pk)
+    else:
+        worker.tasks.add(pk)
+    return HttpResponseRedirect(reverse_lazy("task_manager:task-detail", args=[pk]))
 
 
 class TaskTypeCreateView(LoginRequiredMixin, generic.CreateView):

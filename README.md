@@ -1,5 +1,4 @@
-# IT Task Manager 
-> Additional information
+# IT Task Manager
 
 Project for bringing all your tasks, teammates, and tools together
 
@@ -46,7 +45,6 @@ pip install -r requirements.txt
 
 * Make data base and load fixture
 ```shell
-python manage.py makemigrations
 python manage.py migrate
 python manage.py loaddata db.json
 ```

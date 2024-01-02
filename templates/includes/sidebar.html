@@ -1,14 +1,47 @@
-<ul class="sidebar-nav list-group">
+<div class="d-flex flex-column flex-shrink-0 p-3 pt-1 bg-light h-100" style="width: 100%;">
   {% if user.is_authenticated %}
-    <li class="list-group-item">My page: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
-    <li class="list-group-item"><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>
+    <div class="d-flex align-items-center">
+    <span class="material-symbols-outlined" style="margin-right: 0.5rem;">
+      account_circle
+    </span>
+      <a href="{{ user.get_absolute_url }}"
+         class="fs-4 mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" style="font-size: 1.5rem;">{{ user.get_username }}</a>
+    </div>
+    <div class="d-flex align-items-center">
+    <span class="material-symbols-outlined" style="margin-right: 0.5rem;">
+      input
+    </span>
+      <a class="fs-5 mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+         href="{% url 'logout' %}?next={{ request.path }}" style="font-size: 1.5rem;">
+        Logout
+      </a>
+    </div>
   {% else %}
-    <li class="list-group-item"><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>
+    <div class="d-flex align-items-center">
+    <span class="material-symbols-outlined" style="margin-right: 0.5rem;">
+      input
+    </span>
+      <a class="fs-5 mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+         href="{% url 'login' %}?next={{ request.path }}" style="font-size: 1.5rem;">
+        Login
+      </a>
+    </div>
   {% endif %}
-
-  <br>
-
-  <li class="list-group-item"><a href="{% url 'task_manager:index' %}">Home</a></li>
-  <li class="list-group-item"><a href="{% url 'task_manager:task-list' %}">All tasks</a></li>
-  <li class="list-group-item"><a href="{% url 'task_manager:worker-list' %}">All workers</a></li>
-</ul>
+  <hr class="w-100">
+  {% with request.resolver_match.url_name as url_name %}
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="{% url 'task_manager:index' %}"
+           class="nav-link {% if url_name == 'index' %}active{% else %}text-dark{% endif %}">Home</a>
+      </li>
+      <li>
+        <a href="{% url 'task_manager:task-list' %}"
+           class="nav-link {% if url_name == 'task-list' %}active{% else %}text-dark{% endif %}">All tasks</a>
+      </li>
+      <li>
+        <a href="{% url 'task_manager:worker-list' %}"
+           class="nav-link {% if url_name == 'worker-list' %}active{% else %}text-dark{% endif %}">All workers</a>
+      </li>
+    </ul>
+  {% endwith %}
+</div>
