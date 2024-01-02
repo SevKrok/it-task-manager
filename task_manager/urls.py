@@ -43,7 +43,7 @@ urlpatterns = [
         name="change-task-status",
     ),
     path(
-        "tasks/task-type-create",
+        "tasks/task-type-create/",
         TaskTypeCreateView.as_view(),
         name="task-type-create"
     ),
@@ -60,7 +60,7 @@ urlpatterns = [
         name="worker-update"
     ),
     path(
-        "workers/position-create",
+        "workers/position-create/",
         PositionCreateView.as_view(),
         name="position-create"
     ),
